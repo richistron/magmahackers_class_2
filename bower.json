@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "jasmine-core": "^2.4.1"
+    "jasmine-core": "^2.4.1",
+    "jquery": "^2.2.3"
   }
 }

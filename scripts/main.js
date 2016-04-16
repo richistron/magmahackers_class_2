@@ -1,7 +1,12 @@
-
 function YouTubeEmbeder(options, callback){
-  this._setOptions(options);
-  // this.done(callback);
+  var that = this;
+  document.addEventListener("DOMContentLoaded", function(){
+    that._setOptions(options);
+    that.render();
+    if (typeof callback === 'function') {
+      callback();
+    }
+  });
 }
 
 YouTubeEmbeder.prototype = {
@@ -12,22 +17,17 @@ YouTubeEmbeder.prototype = {
     }
     this._selector = o.selector || 'body';
     this._videoId  = o.videoId || '';
-    this._styles   = o.styles || {};
+    this._height   = o.height || '100px';
+    this._width    = o.width || '100px';
+    this.element = document.querySelector(this._selector);
   },
 
-  getVideoId: function(){
-    return this._videoId;
+  template: function(){
+    return '<iframe width="'+this._width+'" height="'+this._height+'" src="https://www.youtube.com/embed/'+this._videoId+'" frameborder="0" allowfullscreen></iframe>';
   },
 
-  getTemplate: function(){
-    return '<iframe width="560" height="315" src="https://www.youtube.com/embed/NJqXV_MW4aY" frameborder="0" allowfullscreen></iframe>';
-  },
-
-  getComments: function(){},
-
-  render: function(){}
+  render: function(){
+    this.element.innerHTML = this.template();
+  }
 };
-
-
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/NJqXV_MW4aY" frameborder="0" allowfullscreen></iframe>
 
