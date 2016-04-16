@@ -1,0 +1,21 @@
+{
+  "name": "hackers_2",
+  "description": "foo bar",
+  "main": "app.js",
+  "authors": [
+    "Ricardo Rivas G. <richistron@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://richistron.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasmine-core": "^2.4.1"
+  }
+}
